@@ -1,6 +1,10 @@
 {
   "name": "maritime_flag_app",
   "private": true,
+  "engines": {
+    "node": "14.17.0",
+    "npm": "6.14.13"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
