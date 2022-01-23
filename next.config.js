@@ -1,3 +1,4 @@
+/*
 const withPWA = require('next-pwa')
 
 module.exports = withPWA({
@@ -9,3 +10,8 @@ module.exports = withPWA({
   	skipWaiting: true
   }
 })
+//This is making development server load much more slowly
+*/
+module.exports = {
+	reactStrictMode: true
+}

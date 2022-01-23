@@ -1,3 +1,12 @@
+:root{
+	--plain: #fffffe;
+	--headline: #272343; /*also button text, stroke*/
+	--paragraph: #2d334a;
+	--button: #ffd803; /*higlight*/
+	--secondary: #e3f6f5;
+	--tertiary: #bae808;
+};
+
 html,
 body {
   padding: 0;
@@ -13,4 +22,23 @@ a {
 
 * {
   box-sizing: border-box;
+  background-color: var(--plain);
+}
+
+
+.iconicBG{
+	z-index: 5!important;
+}
+
+.iconicBG .gon{
+}
+
+.iconicBG .img1{
+	margin-top: 10px!important;
+	z-index: 5!important;
+}
+
+.surrounded{
+	width: 80%;
+	margin: 0 auto;
 }
