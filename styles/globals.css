@@ -53,10 +53,14 @@ p{
 	margin: 0 auto;
 }
 
-.board{
-	position: relative;
+.wide{
 	padding: 50px;
 	width: calc(100% - 100px);
+}
+
+
+.board{
+	position: relative;
 	background-color: var(--plain);
 	margin: 20px auto 40px;
 	opacity: 1;
@@ -64,15 +68,29 @@ p{
 	z-index: 5;
 }
 
-.workgroup{
-	position: relative;
-	padding: 50px 0;
-	width: calc(100% - 100px);
-	margin: 0 auto;
+.flexor{
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
+}
+
+.workgroup{
+	position: relative;
+	margin: 0 auto;
 	z-index: 5;
+}
+
+@media(max-width: 540px){
+	.within-main{
+		width: 98%;
+	}
+	.wide{
+		padding: 50px 10px;
+		width: calc(100% - 20px);
+	}
+	.flexor{
+		flex-direction: column;
+	}
 }
 
 button{

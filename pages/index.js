@@ -10,11 +10,11 @@ export default function Home() {
   return (
     <Interface>
       <section className="within-main">
-        <div className="board">
+        <div className="board wide">
           <p className="lead"> Hello!, Welcome to the maritime flag app. What do you intend to do now? </p>
         </div>
 
-        <div className="workgroup">
+        <div className="workgroup wide flexor">
           <button> Nautical Flags Tutor </button>
           <button> Nautical Flags Quizzer </button>
           <button> About the App </button>
