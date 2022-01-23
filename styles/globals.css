@@ -3,7 +3,7 @@
 	--headline: #272343; /*also button text, stroke*/
 	--paragraph: #2d334a;
 	--button: #ffd803; /*higlight*/
-	--secondary: #e3f6f5;
+	--secondary: #e3f6f5; /*rgba(227, 246, 245, 1)*/
 	--tertiary: #bae808;
 };
 
@@ -21,24 +21,72 @@ a {
 }
 
 * {
-  box-sizing: border-box;
-  background-color: var(--plain);
+  box-sizing: border-box;  
 }
 
-
-.iconicBG{
-	z-index: 5!important;
+.overflow{
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	background-color: rgba(0, 0, 0, .4);
 }
 
-.iconicBG .gon{
+main{
+	padding: 50px 0;
+	background-color: var(--secondary);
+	/*background-color: rgba(227, 246, 245, .7);
+	background-blend-mode: overlay;*/
+	/*background-color: rgba(227, 246, 245, .8);
+	background-blend-mode: screen;*/
+	/*background-color: rgba(227, 246, 245, .8);
+	background-blend-mode: soft-light;*/
+	
 }
 
-.iconicBG .img1{
-	margin-top: 10px!important;
-	z-index: 5!important;
+p{
+	color: var(--paragraph);
+	font-weight: 600!important;
 }
 
-.surrounded{
+.within-main{
 	width: 80%;
 	margin: 0 auto;
+}
+
+.board{
+	position: relative;
+	padding: 50px;
+	width: calc(100% - 100px);
+	background-color: var(--plain);
+	margin: 20px auto 40px;
+	opacity: 1;
+	text-align: center;
+	z-index: 5;
+}
+
+.workgroup{
+	position: relative;
+	padding: 50px 0;
+	width: calc(100% - 100px);
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	z-index: 5;
+}
+
+button{
+	background-color: var(--plain);
+	padding: 10px 40px;
+	outline: none;
+	border: 1px solid var(--headline);
+	margin: 10px 5px;
+	border-radius: 20px;
+	color: var(--headline);
+	cursor: pointer;
+}
+
+button:hover, button:focus, button.active{
+	background-color: var(--tertiary);
+	
 }
