@@ -10,7 +10,7 @@ export default function SlidingElement({id, alphabet="B", img_url="/bravo.png", 
 		 <h2> {alphabet} </h2>
 
 	     <div className="container" style={{textAlign: "center"}}>
-	        <Image src={img_url} width={260} height={260} alt={"imagethingy"} style={{margin: "0 auto"}} />
+	        <Image src={img_url} width={260} height={260} alt={"imagethingy"} className="centermargin" />
 	     </div>
 
 	     <p style={{textAlign:"center"}}> This flag represents {name} </p>

@@ -5,14 +5,14 @@
 	z-index: 10;
 	background-color: var(--secondary); /*plain may be better*/
 	padding: 30px 50px;
-	min-height: 98vh;
+	min-height: calc(100vh - 50px)/*50 px for the bottom padding of the main*/;
 }
 
 .nav-group{
 	display: flex;
 	width: 100%;
 	justify-content: space-around;
-	margin: 5px 0 20px;
+	margin: 15vh 0 20px;
 }
 
 @media(max-width: 540px){
