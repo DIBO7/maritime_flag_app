@@ -1,0 +1,33 @@
+.pop{
+	width: calc(80vw + 100px);
+	margin: 0 auto;
+	position: relative;
+	z-index: 10;
+	background-color: var(--secondary); /*plain may be better*/
+	padding: 30px 50px;
+}
+
+.slider{
+	width: 80vw; /*entire parent vw*/
+	height: auto;
+	display: flex;
+	overflow-x: auto;
+	/*webkit to make it swipe smoothly on mobile based browsers*/
+	-webkit-overflow-scrolling: touch;
+	scroll-behavior: smooth;
+	/*now to make it snap on scroll*/
+	scroll-snap-type: x mandatory;
+}
+
+.slider > div{
+	scroll-snap-align: start;
+}
+
+.slider .slide{
+	width: 100%;
+	flex-shrink: 0;
+}
+
+.slide img{
+
+}

@@ -1,27 +1,38 @@
-import Image from "next/image";
+
 import Link from "next/link";
-//import Interface from "../layouts/interface";
-//import styles from '../styles/Home.module.css';
+import Interface from "../../layouts/interface";
+import styles from '../../styles/Tutorial.module.css';
+import SlidingElement from "../../components/slide";
 
 
-export default function Home() {
+export default function Tutorial() {
 
   return (
     
-    <section>
+    <Interface>
+    <section className={styles.pop}>
 
-      <h2> B </h2>
-
-      <div className='card'>
-        <Image src="/bravo.png" width={100} height={100} className="card-image-top" />
+      <div className="">
+        <Link href="#slide-1" passHref> 
+          <a> Slide One </a> 
+        </Link>
+        <Link href="#slide-2" passHref> 
+          <a> Slide Two </a> 
+        </Link>
+        <Link href="#slide-3" passHref> 
+          <a> Slide Three </a> 
+        </Link>
+        <Link href="#slide-4" passHref> 
+          <a> Slide Four </a> 
+        </Link>
       </div>
 
-      <p> This flag represents "Bravo" </p>
-
-      <article>
-        <span className="tiny"> It means </span>
-        <p> I require a diver below urgently </p>
-      </article>
+      <div className={styles.slider}>
+        <SlidingElement id="1" />
+        <SlidingElement id="2" />
+        <SlidingElement id="3" />
+        <SlidingElement id="4" />
+      </div>  
 
       <footer>
       <hr />
@@ -33,6 +44,7 @@ export default function Home() {
       </footer>
 
     </section>
+    </Interface>
 
   )
 }
