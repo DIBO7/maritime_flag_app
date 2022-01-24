@@ -1,14 +1,43 @@
 .pop{
-	width: calc(80vw + 100px);
+	width: calc(90vw + 100px);
 	margin: 0 auto;
 	position: relative;
 	z-index: 10;
 	background-color: var(--secondary); /*plain may be better*/
 	padding: 30px 50px;
+	min-height: 98vh;
+}
+
+.nav-group{
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+	margin: 5px 0 20px;
+}
+
+@media(max-width: 540px){
+	.pop{
+		width: calc(96vw);
+		padding: 30px 0;
+	}
+}
+
+.nav-group a{
+	background-color: var(--plain);
+	font-size: 1rem;
+	padding: 3px 10px;
+	border-radius: 50%;
+	box-shadow: .2px .2px 1px 1px rgba(0, 0, 0, .1);
+	font-weight: 600;
+	/*will need to add some margins later*/
+}
+
+.nav-group a:hover,.nav-group a:focus{
+	background-color: var(--button);
 }
 
 .slider{
-	width: 80vw; /*entire parent vw*/
+	width: calc(90vw); /*entire parent vw*/
 	height: auto;
 	display: flex;
 	overflow-x: auto;

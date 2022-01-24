@@ -13,11 +13,11 @@ export default function SlidingElement({id, alphabet="B", img_url="/bravo.png", 
 	        <Image src={img_url} width={260} height={260} alt={"imagethingy"} style={{margin: "0 auto"}} />
 	     </div>
 
-	     <p> This flag represents {name} </p>
+	     <p style={{textAlign:"center"}}> This flag represents {name} </p>
 
-	     <article>
+	     <article style={{padding: "5px 10px 30px"}}>
 	        <span className="tiny"> It means </span>
-	        <p> {meaning} </p>
+	        <p className="lead"> {meaning} </p>
 	     </article>
 
 		</div>

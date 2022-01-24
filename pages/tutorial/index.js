@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import Interface from "../../layouts/interface";
+//import Interface from "../../layouts/interface";
 import styles from '../../styles/Tutorial.module.css';
 import SlidingElement from "../../components/slide";
 
@@ -9,21 +9,21 @@ export default function Tutorial() {
 
   return (
     
-    <Interface>
+    <main style={{backgroundColor: "var(--secondary)"}}>
     <section className={styles.pop}>
 
-      <div className="">
+      <div className={styles["nav-group"]}>
         <Link href="#slide-1" passHref> 
-          <a> Slide One </a> 
+          <a> A </a> 
         </Link>
         <Link href="#slide-2" passHref> 
-          <a> Slide Two </a> 
+          <a> B </a> 
         </Link>
         <Link href="#slide-3" passHref> 
-          <a> Slide Three </a> 
+          <a> C </a> 
         </Link>
         <Link href="#slide-4" passHref> 
-          <a> Slide Four </a> 
+          <a> D </a> 
         </Link>
       </div>
 
@@ -44,7 +44,7 @@ export default function Tutorial() {
       </footer>
 
     </section>
-    </Interface>
+    </main>
 
   )
 }
