@@ -1,3 +1,12 @@
+/*
+So I would redesign this page in a way that the would make the uX way better on mobile-> starting from scratch
+
+I would use display flex, justify cintent space between and flex direction column (vertical). 
+Doing this and setting the min-height of the parent section (that has the alphabet, the flag, meaning and All other letters for easy scrolling)
+to about 100vh. About because browsers have their own navigation ontop which may make 100vh lower (not fully coincide with the full screen)
+anythin else will be at the bottom. I should still retain the design of individula elementrs tho
+*/
+
 .pop{
 	width: calc(90vw + 100px);
 	margin: 0 auto;
