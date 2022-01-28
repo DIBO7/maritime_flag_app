@@ -10,7 +10,7 @@ export default function Home({children}) {
   return (
     <BareMinimumTemplate>
 
-      <main style={{backgroundImage: 'url("/display/bg2.png")', backgroundSize: "contain", minHeight: '100vh'}}>
+      <main className="mainclass" style={{backgroundImage: 'url("/display/bg2.png")', backgroundSize: "contain", minHeight: '100vh'}}>
         {children}                
       </main>
 

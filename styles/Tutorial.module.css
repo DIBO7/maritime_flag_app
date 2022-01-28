@@ -7,6 +7,15 @@ to about 100vh. About because browsers have their own navigation ontop which may
 anythin else will be at the bottom. I should still retain the design of individula elementrs tho
 */
 
+.mainview{
+	margin: 0!important; background-color: red;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+
 .pop{
 	width: calc(90vw + 100px);
 	margin: 0 auto;

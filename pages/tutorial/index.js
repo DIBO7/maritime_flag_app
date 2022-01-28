@@ -13,7 +13,7 @@ export default function Tutorial() {
 
       <main style={{backgroundColor: "var(--secondary)"}}>
 
-        <section>
+        <section className={styles.mainview}>
       {/*This section should take the entire screen (consideration should be given to browser-views)*/}
 
             <div className={styles.slider}>
@@ -42,18 +42,15 @@ export default function Tutorial() {
 
         <footer>
           <hr />
+          
           <Link href="/">
             <a> Home </a>
           </Link>
+
         </footer>
 
 
-        <section className={styles.pop}>          
-
-        </section>
-    </main>
-
-      
+    </main>      
     </BareMinimumTemplate>
 
     
