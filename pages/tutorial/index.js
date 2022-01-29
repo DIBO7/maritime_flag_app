@@ -16,7 +16,7 @@ export default function Tutorial() {
         <section className={styles.mainview}>
       {/*This section should take the entire screen (consideration should be given to browser-views)*/}
 
-            <div className={styles.slider}>
+            <div className={styles.slider}> {/*boostrap 'conatiner' class looks good but the width of the sliding element gets a bug. alittle portion of next element is visible*/}
               <SlidingElement id="1" />
               <SlidingElement id="2" />
               <SlidingElement id="3" />
@@ -40,9 +40,9 @@ export default function Tutorial() {
 
         </section>
 
+        <hr />
+
         <footer>
-          <hr />
-          
           <Link href="/">
             <a> Home </a>
           </Link>

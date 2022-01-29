@@ -109,3 +109,8 @@ button:hover, button:focus, button.active{
 	background-color: var(--tertiary);
 	
 }
+
+footer{
+	padding: 10px 0 30px;
+	text-align: center;
+}

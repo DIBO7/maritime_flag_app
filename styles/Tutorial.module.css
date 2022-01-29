@@ -8,73 +8,51 @@ anythin else will be at the bottom. I should still retain the design of individu
 */
 
 .mainview{
-	margin: 0!important; background-color: red;
+	margin: 0;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 
-
-.pop{
-	width: calc(90vw + 100px);
-	margin: 0 auto;
-	position: relative;
-	z-index: 10;
-	background-color: var(--secondary); /*plain may be better*/
-	padding: 30px 50px;
-	min-height: calc(100vh - 50px)/*50 px for the bottom padding of the main*/;
-}
-
-.nav-group{
-	display: flex;
-	width: 100%;
-	justify-content: space-around;
-	margin: 15vh 0 20px;
-}
-
-@media(max-width: 540px){
-	.pop{
-		width: calc(96vw);
-		padding: 30px 0;
-	}
-}
-
-.nav-group a{
-	background-color: var(--plain);
-	font-size: 1rem;
-	padding: 3px 10px;
-	border-radius: 50%;
-	box-shadow: .2px .2px 1px 1px rgba(0, 0, 0, .1);
-	font-weight: 600;
-	/*will need to add some margins later*/
-}
-
-.nav-group a:hover,.nav-group a:focus{
-	background-color: var(--button);
-}
-
 .slider{
-	width: calc(90vw); /*entire parent vw*/
-	height: auto;
-	display: flex;
-	overflow-x: auto;
-	/*webkit to make it swipe smoothly on mobile based browsers*/
-	-webkit-overflow-scrolling: touch;
-	scroll-behavior: smooth;
-	/*now to make it snap on scroll*/
-	scroll-snap-type: x mandatory;
+  width: 100%; /*entire parent vw*/
+  height: auto;
+  display: flex;
+  overflow-x: auto;
+  /*webkit to make it swipe smoothly on mobile based browsers*/
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  /*now to make it snap on scroll*/
+  scroll-snap-type: x mandatory;
 }
 
 .slider > div{
-	scroll-snap-align: start;
+  scroll-snap-align: start;
 }
 
 .slider .slide{
-	width: 100%;
-	flex-shrink: 0;
+  width: 100%;
+  flex-shrink: 0;
 }
 
-.slide img{
+.nav-group{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin: 15vh 0 20px;
+}
 
+.nav-group a{
+  background-color: var(--plain);
+  font-size: 1rem;
+  padding: 3px 10px;
+  border-radius: 50%;
+  box-shadow: .2px .2px 1px 1px rgba(0, 0, 0, .1);
+  font-weight: 600;
+  /*will need to add some margins later*/
+}
+
+.nav-group a:hover,.nav-group a:focus{ /*maybe the focus is not needed because when u click a letter and you scroll away from it, the clicked alphabet still retains the focus but it is not what is been viewed*/
+  background-color: var(--button);
 }

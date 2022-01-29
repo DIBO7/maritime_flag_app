@@ -41,7 +41,7 @@ anythin else will be at the bottom. I should still retain the design of individu
   /*will need to add some margins later*/
 }
 
-.nav-group a:hover,.nav-group a:focus{
+.nav-group a:hover,.nav-group a:focus{ /*maybe the focus is not needed because when u click a letter and you scroll away from it, the clicked alphabet still retains the focus but it is not what is been viewed*/
   background-color: var(--button);
 }
 
@@ -66,6 +66,4 @@ anythin else will be at the bottom. I should still retain the design of individu
   flex-shrink: 0;
 }
 
-.slide img{
-
-}
+.slide img{}
