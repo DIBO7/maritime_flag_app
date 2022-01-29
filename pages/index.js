@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Interface from "../layouts/interface";
 //import Card from "../components/card"
+import ModelScreen from "../components/modal";
 import styles from '../styles/Home.module.css';
 
 
@@ -16,11 +17,16 @@ export default function Home() {
 
         <div className="workgroup wide flexor">
           <Link href="/tutorial"><button> Nautical Flags Tutor </button></Link>
-          <Link href="/quizzer"><button> Nautical Flags Quizzer </button></Link>
+          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Nautical Flags Quizzer
+          </button>          
+
           <button> About the App </button>
           <button> Send App Invite to Friends </button>
 
         </div>
+
+        <ModelScreen />
 
       </section>
     </Interface>
