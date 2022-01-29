@@ -31,8 +31,9 @@ a {
 	background-color: rgba(0, 0, 0, .4);
 }
 
-main{
-	padding: 50px 0;
+/*this is for 'main' element on the index/home page*/
+.mainclass{
+	padding: 15px 0 50px; /*this has 50px top formely, may lead to css errors in some previously built pages*/
 	background-color: var(--secondary);
 	/*background-color: rgba(227, 246, 245, .7);
 	background-blend-mode: overlay;*/
@@ -107,4 +108,9 @@ button{
 button:hover, button:focus, button.active{
 	background-color: var(--tertiary);
 	
+}
+
+footer{
+	padding: 10px 0 30px;
+	text-align: center;
 }
