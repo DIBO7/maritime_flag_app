@@ -16,7 +16,7 @@ export default function Home() {
 
         <div className="workgroup wide flexor">
           <Link href="/tutorial"><button> Nautical Flags Tutor </button></Link>
-          <button> Nautical Flags Quizzer </button>
+          <Link href="/quizzer"><button> Nautical Flags Quizzer </button></Link>
           <button> About the App </button>
           <button> Send App Invite to Friends </button>
 
