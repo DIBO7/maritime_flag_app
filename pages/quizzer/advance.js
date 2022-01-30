@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import BareMinimumTemplate from "../../layouts/interface/minimum";
 import cssStyles from "../../styles/Quizzer.module.css";
 import ModalScreen from "../../layouts/modal";
@@ -14,7 +15,8 @@ export default function Quizzer() {
 
     <section className={cssStyles["mainsection"]}>
 	    <div className="board wide" style={{margin: "0 auto!important"}}>
-	      <p className="lead"> What does Bravo mean?</p>
+	      <p className="lead"> What does the below flag represents?</p>
+	      <Image src="/bravo.png" width={260} height={260} alt={"imagethingy"} className="centermargin" />
 	    </div>
 
 	    <div className="workgroup wide flexor">
