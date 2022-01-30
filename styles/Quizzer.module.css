@@ -1,0 +1,34 @@
+
+.mainsection{
+	background-color: var(--secondary);
+	min-height: 100vh;
+	padding: 20px 0 0 0; /*to add some spacings at the top*/
+}
+
+
+.cta{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 5px 40px;
+	justify-content: center;
+}
+
+.tiny{
+	color: var(--highlight);
+	opacity: .7;
+	margin: 5px 10px 5px 0;
+	text-align: center;
+}
+
+.nextbtn{
+	margin: 0;
+	padding: 5px 20px;
+	border: 1px solid var(--button);
+	color: var(--plain);
+	background-color: var(--button);
+}
+
+.nextbtn:hover, .nextbtn:focus{
+	background-color: var(--plain);
+	color: var(--highlight);
+}
