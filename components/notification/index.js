@@ -7,7 +7,7 @@ export const ConfirmAnswer = function(){
 
 		<div className={cssStyles["cta"]}>
 	  	<span className={cssStyles["tiny"]}>
-	  		Proceed to next question. please note you won't be able to return later
+	  		Proceed to next question. please note you will not be able to return later
 	  	</span>
 		<button className={cssStyles["nextbtn"]} disabled={true}> Proceed To Next Question </button>
 		</div>
