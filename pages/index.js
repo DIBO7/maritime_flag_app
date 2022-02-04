@@ -16,7 +16,7 @@ export default function Home() {
         </div>
 
         <div className="workgroup wide flexor">
-          <Link href="/tutorial"><button> Nautical Flags Tutor </button></Link>
+          <Link href="/tutorial" passHref><button> Nautical Flags Tutor </button></Link>
           <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Nautical Flags Quizzer
           </button>          
