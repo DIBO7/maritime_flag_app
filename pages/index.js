@@ -21,7 +21,7 @@ export default function Home() {
             Nautical Flags Quizzer
           </button>          
 
-          <Link href="/quizzer/"><button> About the App </button></Link>
+          <Link href="/quizzer/" passHref><button> About the App </button></Link>
           <button> Send App Invite to Friends </button>
 
         </div>
