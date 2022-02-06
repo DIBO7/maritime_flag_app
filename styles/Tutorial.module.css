@@ -41,6 +41,7 @@ anythin else will be at the bottom. I should still retain the design of individu
   width: 100%;
   justify-content: space-around;
   margin: 15vh 0 20px;
+  flex-wrap: wrap;
 }
 
 .nav-group a{
@@ -51,6 +52,7 @@ anythin else will be at the bottom. I should still retain the design of individu
   box-shadow: .2px .2px 1px 1px rgba(0, 0, 0, .1);
   font-weight: 600;
   /*will need to add some margins later*/
+  margin: 5px;
 }
 
 .nav-group a:hover,.nav-group a:focus{ /*maybe the focus is not needed because when u click a letter and you scroll away from it, the clicked alphabet still retains the focus but it is not what is been viewed*/
