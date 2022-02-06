@@ -69,7 +69,7 @@ export default function Tutorial({flaglist}) {//flaglist is from the getServerPr
 }
 
 export const getServerSideProps = async() =>{
-  const res = await axios.get("http://localhost:3000/api/v1/flags");
+  const res = await axios.get("/api/v1/flags");
   return{
     props:{
       flaglist: res.data,
