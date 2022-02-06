@@ -22,7 +22,7 @@ export default function Tutorial({flaglist}) {//flaglist is from the getServerPr
               {
                 flaglist.map((f)=>{
                   return(
-                      <SlidingElement id={f._id} key={f._id} alphabet={f.name.charAt(0)}  name={f.name} meaning={f.meaning[0]} />
+                      <SlidingElement id={f._id} key={f._id} img_url={f.image} alphabet={f.name.charAt(0)}  name={f.name} meaning={f.meaning[0]} />
                     )
                 })
               }
