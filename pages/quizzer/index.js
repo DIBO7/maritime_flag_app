@@ -6,6 +6,14 @@ import {ConfirmAnswer} from "../../components/notification";
 import ProgressBar from "../../components/meter";
 
 
+//here, I will fetch all flags from the api (most probably with useEffect)
+//keep the fetched flags in an API
+//create a function to pick random 5 or 10 objects to questonify. (this function can be in a different file, cos it will be used in other places)
+//questionify selected objects and keep them in a stata
+//user answers are also kept in a state
+//
+
+
 export default function Quizzer() {
   return (
     <BareMinimumTemplate>
