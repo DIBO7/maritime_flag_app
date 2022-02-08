@@ -10,6 +10,8 @@ This PWA Web app is built to help maritime young professionals learn the maritim
 ## STACK
 1. Next JS
 
+## How The App Works
+1. On startup, 
 
 
 ## Getting Started
