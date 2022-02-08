@@ -1,12 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
-import axios from "axios";
+//import axios from "axios";
+//import absoluteUrl from "next-absolute-ur";//this is useless too as it takes an argument which cannot be gottent from get ServerSideProps()
 import BareMinimumTemplate from "../../layouts/interface/minimum";
 import styles from '../../styles/Tutorial.module.css';
 import SlidingElement from "../../components/slide";
 
 
-export default function Tutorial({flaglist}) {//flaglist is from the getServerProps below whish is like useEffect except it works before page loads
+function Tutorial({data}) {//flaglist is from the getServerProps below whish is like useEffect except it works before page loads
 
   return (
     
@@ -69,10 +70,15 @@ export default function Tutorial({flaglist}) {//flaglist is from the getServerPr
 }
 
 export const getServerSideProps = async() =>{
-  const res = await axios.get("/api/v1/flags");
+  //const res = await axios.get("http://localhost:3000/api/v1/flags");  
+  const res = await fetch("http://maritime-flag-app.vercel.app/api/v1/flags")//for now all host (heroku, vercel and local) should fetch from vercel
+  //and the only way to test that is in production...what a bad idea!!
+  const data = await res.json()
+
+//pass data to this page via props
   return{
-    props:{
-      flaglist: res.data,
-    }
+    props:{data}
   }
 }
+
+export default Tutorial;
