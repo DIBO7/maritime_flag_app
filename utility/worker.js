@@ -35,16 +35,39 @@ export const getAllPossibleAnswers = function(data){
 }
 
 
+const makeOptions = function(actualMeaning, allMeanings){
+	//Since the answr can be only one string, pick any four and in any situations, AT LEAST THREE WOULD BE WRONG
+	let wrongOptions = getRandomObjects(allMeanings, 4)
+
+	if(wrongOptions.includes(actualMeaning)){
+		//just return it; as its a random pick alreday
+		return wrongOptions
+	}else{
+		//remove any of them and add the actual answers //then return it
+		let randomPosition = Math.floor(Math.random() * 4);
+		wrongOptions.splice(randomPosition, 1, actualMeaning)
+		return wrongOptions;
+	}	
+}
+
+
 
 export const questionification = function(arraysOfObjects, apiData){
-
+	//arrayOfObjects are the randomly slected objects we have chosen to ask questions about
 	let allPossibleOptions = getAllPossibleAnswers(apiData) //an array of all possible options
-	//use the length of arrayOfObjects to determine the lenght
-	//pick *3 of the length from allpossibleoptions ensuring none of them is the right answer to any of the ones picked
-	//maybe reshuffle the options 
-	//now make options for each questions
+	
+	let questionScope = arraysOfObjects.map((obj)=>{
+		let qs = new Object();
+		qs.q = obj.name
+		qs.meaning = obj.meaning[0]
+		qs.options = makeOptions(obj.meaning[0], allPossibleOptions)
+		return qs
+		//return {q:obj.name, meaning:obj.meaning[0], options=opts, pk=obj._id} //id may be needed later
+	})
 
-	{q:"Zulu", meaning: "I require a tug", options=["I am dragging my anchor", "I have a diver below", "Man Overboard", "I require a tug"]}
-
-	return 
+	return questionScope;
 }
+
+
+
+//{q:"Zulu", meaning: "I require a tug", options=["I am dragging my anchor", "I have a diver below", "Man Overboard", "I require a tug"]}

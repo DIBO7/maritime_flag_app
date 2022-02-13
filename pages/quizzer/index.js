@@ -6,7 +6,7 @@ import ModalScreen from "../../layouts/modal";
 import {ConfirmAnswer} from "../../components/notification";
 import ProgressBar from "../../components/meter";
 import Loader from "../../components/loader";
-import {getAPIData, getRandomObjects} from "../../utility/worker";
+import {getAPIData, getRandomObjects, questionification} from "../../utility/worker";
 
 //here, I will fetch all flags from the api (most probably with useEffect)
 //keep the fetched flags in an API
@@ -20,11 +20,15 @@ export default function Quizzer({data}) {
 
 	let [ready, setReady] = useState(false);
 	let [apiData, setApiData] = useState(data);
+	let [questions, setQuestions] = useState([]);
 
 	useEffect(()=>{
 		//set the loader on
 		setReady(false)
-		console.log(getRandomObjects(apiData))
+		let randomObjectsToQuizOn = getRandomObjects(apiData)
+		let something = questionification(randomObjectsToQuizOn, apiData)
+		console.log(something)
+		setQuestions(something)
 		setTimeout(()=>{setReady(true)}, 2500)
 		//use a function on it to select any random 10
 		//turn this ten into questions
