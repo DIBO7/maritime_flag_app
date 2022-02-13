@@ -23,3 +23,28 @@ export const getRandomObjects = function(array, objLength=10){
 
 	return randomizedArray;
 }
+
+
+
+export const getAllPossibleAnswers = function(data){
+	//the data is an array on objects
+	let options = data.map((item)=>{
+		return item.meaning[0]
+	})
+	return options
+}
+
+
+
+export const questionification = function(arraysOfObjects, apiData){
+
+	let allPossibleOptions = getAllPossibleAnswers(apiData) //an array of all possible options
+	//use the length of arrayOfObjects to determine the lenght
+	//pick *3 of the length from allpossibleoptions ensuring none of them is the right answer to any of the ones picked
+	//maybe reshuffle the options 
+	//now make options for each questions
+
+	{q:"Zulu", meaning: "I require a tug", options=["I am dragging my anchor", "I have a diver below", "Man Overboard", "I require a tug"]}
+
+	return 
+}
