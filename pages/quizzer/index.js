@@ -4,7 +4,7 @@ import cssStyles from "../../styles/Quizzer.module.css";
 import ModalScreen from "../../layouts/modal";
 import {ConfirmAnswer} from "../../components/notification";
 import ProgressBar from "../../components/meter";
-
+import Loader from "../../components/loader";
 
 //here, I will fetch all flags from the api (most probably with useEffect)
 //keep the fetched flags in an API
@@ -19,6 +19,8 @@ export default function Quizzer() {
     <BareMinimumTemplate>
 
     <ProgressBar />
+
+    <Loader />
 
     <section className={cssStyles["mainsection"]}>
 	    <div className="board wide" style={{margin: "0 auto!important"}}>
