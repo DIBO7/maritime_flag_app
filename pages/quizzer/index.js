@@ -1,3 +1,4 @@
+import {useState, useEffect} from "react";
 import Link from "next/link";
 import BareMinimumTemplate from "../../layouts/interface/minimum";
 import cssStyles from "../../styles/Quizzer.module.css";
@@ -5,6 +6,7 @@ import ModalScreen from "../../layouts/modal";
 import {ConfirmAnswer} from "../../components/notification";
 import ProgressBar from "../../components/meter";
 import Loader from "../../components/loader";
+import {getAPIData} from "../../utility/worker";
 
 //here, I will fetch all flags from the api (most probably with useEffect)
 //keep the fetched flags in an API
@@ -14,48 +16,72 @@ import Loader from "../../components/loader";
 //
 
 
-export default function Quizzer() {
+export default function Quizzer({data}) {
+
+	let [ready, setReady] = useState(false);
+	let [apiData, setApiData] = useState(data);
+
+	useEffect(()=>{
+		//set the loader on
+		setReady(false)
+		console.log(apiData)
+		setTimeout(()=>{setReady(true)}, 2500)
+		//use a function on it to select any random 10
+		//turn this ten into questions
+	}, []);
+
+
   return (
     <BareMinimumTemplate>
+		
+		<ProgressBar />
 
-    <ProgressBar />
 
-    <Loader />
+		<section className={cssStyles["mainsection"]}>
 
-    <section className={cssStyles["mainsection"]}>
-	    <div className="board wide" style={{margin: "0 auto!important"}}>
-	      <p className="lead"> What does Bravo mean?</p>
-	    </div>
+    {
+    	ready ? 
+    				<>    				
+				    <div className="board wide" style={{margin: "0 auto!important"}}>
+				      <p className="lead"> What does Bravo mean?</p>
+				    </div>
 
-	    <div className="workgroup wide flexor">
-	    	<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-			  Dangerous goods onboard
-			</button>
-			
-			<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-			  Dangerous goods onboard
-			</button>
-			
-			<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-			  Dangerous goods onboard
-			</button>
-			
-			<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-			  Dangerous goods onboard
-			</button>
+				    <div className="workgroup wide flexor">
+				    	<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+						  Dangerous goods onboard
+						</button>
+						
+						<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+						  Dangerous goods onboard
+						</button>
+						
+						<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+						  Dangerous goods onboard
+						</button>
+						
+						<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+						  Dangerous goods onboard
+						</button>
 
-	    </div>	    
+				    </div>	    
 
-		<hr />
+						<hr />
 
-		<div className={cssStyles["cta"]}>
-	  	<span className={cssStyles["tiny"]}>
-	  		Proceed to next question. please note you will not be able to return later
-	  	</span>
-		<button className={cssStyles["nextbtn"]} disabled={true}> Proceed To Next Question </button>
-		</div>
+						<div className={cssStyles["cta"]}>
+				  		<span className={cssStyles["tiny"]}>
+				  			Proceed to next question. please note you will not be able to return later
+				  		</span>
+						<button className={cssStyles["nextbtn"]} disabled={true}> Proceed To Next Question </button>
+						</div>
 
-		<hr />
+						<hr />
+						</>
+
+						:
+
+						<Loader />
+    }
+
 
 		<footer>
 			<Link href="/">
@@ -70,3 +96,15 @@ export default function Quizzer() {
     </BareMinimumTemplate>
   )
 }
+
+
+export const getServerSideProps = async() =>{
+  
+  const data = await getAPIData()
+
+	//pass data to this page via props
+  return{
+    props:{data}
+  }
+}
+

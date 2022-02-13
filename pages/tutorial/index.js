@@ -5,6 +5,7 @@ import Link from "next/link";
 import BareMinimumTemplate from "../../layouts/interface/minimum";
 import styles from '../../styles/Tutorial.module.css';
 import SlidingElement from "../../components/slide";
+import {getAPIData} from "../../utility/worker";
 
 
 function Tutorial({data}) {//data is from the getServerProps below whish is like useEffect except it works before page loads
@@ -70,15 +71,13 @@ function Tutorial({data}) {//data is from the getServerProps below whish is like
 }
 
 export const getServerSideProps = async() =>{
-  //const res = await axios.get("http://localhost:3000/api/v1/flags");  
-  const res = await fetch("https://maritime-flag-app.vercel.app/api/v1/flags")//for now all host (heroku, vercel and local) should fetch from vercel
-  //and the only way to test that is in production...what a bad idea!!
-  const data = await res.json()
+  //for now all host (heroku, vercel and local) should fetch from vercel
+  const data = await getAPIData()
 
-//pass data to this page via props
-  return{
-    props:{data}
-  }
+    //pass data to this page via props
+    return{
+      props:{data}
+    }
 }
 
 export default Tutorial;
