@@ -68,6 +68,3 @@ export const questionification = function(arraysOfObjects, apiData){
 	return questionScope;
 }
 
-
-
-//{q:"Zulu", meaning: "I require a tug", options=["I am dragging my anchor", "I have a diver below", "Man Overboard", "I require a tug"]}

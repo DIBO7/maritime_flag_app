@@ -25,11 +25,9 @@ export default function Quizzer({data}) {
 	useEffect(()=>{
 		//set the loader on
 		setReady(false)
-		let randomObjectsToQuizOn = getRandomObjects(apiData)
-		let something = questionification(randomObjectsToQuizOn, apiData)
-		console.log(something)
-		setQuestions(something)
-		setTimeout(()=>{setReady(true)}, 2500)
+		let randomObjectsToQuizOn = getRandomObjects(apiData)		
+		setQuestions(questionification(randomObjectsToQuizOn, apiData))
+		setReady(true)
 		//use a function on it to select any random 10
 		//turn this ten into questions
 	}, []);
