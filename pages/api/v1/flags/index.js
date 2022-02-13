@@ -10,7 +10,7 @@ export default async function handler(req, res) {
 	switch(method){
 		case "GET":
 			try{
-				const all_flags = await Flag.find()//name:"a string" to filter
+				const all_flags = await Flag.find()//{name:"a string"} to filter, there's also findById(id)
 				res.status(200).json(all_flags)
 
 			}catch(error){
