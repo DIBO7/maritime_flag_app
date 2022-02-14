@@ -9,7 +9,9 @@ This PWA Web app is built to help maritime young professionals learn the maritim
 
 ## STACK
 1. Next JS
-
+2. MongoDB
+3. Firebase
+4. 
 
 
 ## Getting Started
