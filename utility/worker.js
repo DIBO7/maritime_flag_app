@@ -67,4 +67,3 @@ export const questionification = function(arraysOfObjects, apiData){
 
 	return questionScope;
 }
-

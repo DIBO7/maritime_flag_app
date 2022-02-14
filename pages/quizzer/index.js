@@ -16,20 +16,30 @@ import {getAPIData, getRandomObjects, questionification} from "../../utility/wor
 //
 
 
+
 export default function Quizzer({data}) {
 
 	let [ready, setReady] = useState(false);
 	let [apiData, setApiData] = useState(data);
 	let [questions, setQuestions] = useState([]);
+	let [wrongChoices, setWrongChoice] = useState([]); //to hold wrong answers ONLY, we arent keeping track of correct answers
+	let [sn, setSn] = useState(0); //set serial number, this will be used to move along the questions, displaying them one at a time
+
+	const nextSn = () =>{
+		if( (sn + 1) < questions.length){
+			setSn(sn+1)
+		}
+	}
 
 	useEffect(()=>{
 		//set the loader on
 		setReady(false)
-		let randomObjectsToQuizOn = getRandomObjects(apiData)		
-		setQuestions(questionification(randomObjectsToQuizOn, apiData))
-		setReady(true)
 		//use a function on it to select any random 10
+		let randomObjectsToQuizOn = getRandomObjects(apiData)		
 		//turn this ten into questions
+		setQuestions(questionification(randomObjectsToQuizOn, apiData))//the "questionification" function makes the question		
+		//turn off the loader
+		setReady(true)
 	}, []);
 
 
@@ -45,25 +55,21 @@ export default function Quizzer({data}) {
     	ready ? 
     				<>    				
 				    <div className="board wide" style={{margin: "0 auto!important"}}>
-				      <p className="lead"> What does Bravo mean?</p>
+				      <p className="lead"> What does {questions[sn].q} mean?</p>
 				    </div>
+						 
+						<div className="workgroup wide flexor">
 
-				    <div className="workgroup wide flexor">
-				    	<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-						  Dangerous goods onboard
-						</button>
-						
-						<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-						  Dangerous goods onboard
-						</button>
-						
-						<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-						  Dangerous goods onboard
-						</button>
-						
-						<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-						  Dangerous goods onboard
-						</button>
+				    {
+				    	questions[sn].options.map((opt, ind)=>{
+
+				    		return(
+									  <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" key={ind}>
+										  {opt}
+										</button>
+				    			)						    
+				    	})
+				    }
 
 				    </div>	    
 
@@ -71,9 +77,9 @@ export default function Quizzer({data}) {
 
 						<div className={cssStyles["cta"]}>
 				  		<span className={cssStyles["tiny"]}>
-				  			Proceed to next question. please note you will not be able to return later
+				  			you can skip this question but you will not be able to answer it later.
 				  		</span>
-						<button className={cssStyles["nextbtn"]} disabled={true}> Proceed To Next Question </button>
+						<button className={cssStyles["nextbtn"]} disabled={false} onClick={()=>nextSn()}> Proceed To Next Question </button>
 						</div>
 
 						<hr />
