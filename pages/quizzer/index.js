@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import Link from "next/link";
 import BareMinimumTemplate from "../../layouts/interface/minimum";
 import cssStyles from "../../styles/Quizzer.module.css";
@@ -25,6 +25,7 @@ export default function Quizzer({data}) {
 	let [tickedAnswers, setTickedAnswers] = useState([]); //to hold user answers {flagName: "string", answer: "string", correct: Boolean}
 	let [sn, setSn] = useState(0); //set serial number, this will be used to move along the questions, displaying them one at a time
 	let [currentSelection, setCurrentSelection] = useState(null);//the option the user is currently selected
+	let [questionMode, setQuestionMode] = useState(true)//once this is false...show results instead!
 
 
 	//so i will haee two functions; goToNext and anwerThisQuestion (and a new state that either hold wrongAnswers or correct answers)
@@ -44,11 +45,16 @@ export default function Quizzer({data}) {
 	const goToNextQuestion = () =>{
 		if( (sn + 1) < questions.length){
 			setSn(sn+1)
-		}else{
+		}else{//we are at the end of the questions
 			setReady(false)			
+			setQuestionMode(false)
+			setTimeout(()=>{ //wait 2 secs parhaps the setTickedAnswerswill be done by then
+				setReady(true)
+			}, 2000)
 		}
 		setCurrentSelection("")//forget whatever the user has selected;
-		console.log(tickedAnswers)
+		
+
 	}
 
 	useEffect(()=>{
@@ -75,24 +81,29 @@ export default function Quizzer({data}) {
     	ready ? 
     				<>    				
 				    <div className="board wide" style={{margin: "0 auto!important"}}>
-				      <p className="lead"> What does {questions[sn].q} mean?</p>
+				    {
+				    	questionMode ?
+				      	<p className="lead"> What does {questions[sn].q} mean?</p>
+				      	:
+				      	<p className="lead"> You answered <strong style={{fontSize: "3rem"}}>{tickedAnswers.filter(item=>item.correct).length}/{questions.length}</strong> correctly! </p>
+				    }
 				    </div>
 						 
 						<div className="workgroup wide flexor">
 
 				    {
-				    	questions[sn].options.map((opt, ind)=>{
+				    	questionMode ? questions[sn].options.map((opt, ind)=>{
 
 				    		return(
-				    				<React.Fragment key={ind}>
 									  <button className={ opt === currentSelection ? "active" : "" } type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" key={ind} onClick={()=>setCurrentSelection(opt)}>
 										  {opt}
 										</button>
-										
-
-										</React.Fragment>
 				    			)						    
 				    	})
+
+				    	:
+
+				    	<p>Corrections</p>
 				    }
 						
 
