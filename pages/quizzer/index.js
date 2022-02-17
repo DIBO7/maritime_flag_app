@@ -103,22 +103,27 @@ export default function Quizzer({data}) {
 
 				    	:
 
-				    	<p>Corrections</p>
+				    	<div>
+				    	<h3>Your Mistakes</h3>
+					    	{
+					    		tickedAnswers.filter(item=>!item.correct).map((item, ind)=>{
+					    			return(
+					    				<p key={ind}> {item.flagName} actually means "{item.actualMeaning}" </p>
+					    				)
+					    		})
+					    	}
+					    <hr />
+					    <Link href="/quizzer/">
+					  		<button className={cssStyles["nextbtn"]} disabled={false}> Try Quiz Again </button>
+					  	</Link>
+
+					    </div>
+
 				    }
 						
 
 				    </div>	    
-
-						<hr />
-
-						<div className={cssStyles["cta"]}>
-				  		<span className={cssStyles["tiny"]}>
-				  			you can skip this question but you will not be able to answer it later.
-				  		</span>
-						<button className={cssStyles["nextbtn"]} disabled={false} onClick={()=>goToNextQuestion()}> Proceed To Next Question </button>
-						</div>
-
-						<hr />
+				    
 						</>
 
 						:
