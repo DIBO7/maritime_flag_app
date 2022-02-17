@@ -66,7 +66,7 @@ export default function Quizzer({data}) {
   return (
     <BareMinimumTemplate>
 		
-		<ProgressBar />
+		<ProgressBar currentQuestionNumber={sn + 1} />
 
 
 		<section className={cssStyles["mainsection"]}>

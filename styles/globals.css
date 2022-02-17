@@ -105,7 +105,7 @@ button{
 	cursor: pointer;
 }
 
-button:hover, button.active{/*button:focus, removed .focus for better user experience*/
+button:hover, button.active{/*button:focus, removed .focus for better user experience. might create a diffrent style for focus like a black thivk outline or something*/
 	background-color: var(--tertiary);
 	
 }
