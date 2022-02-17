@@ -108,7 +108,7 @@ export default function Quizzer({data}) {
 					    	{
 					    		tickedAnswers.filter(item=>!item.correct).map((item, ind)=>{
 					    			return(
-					    				<p key={ind}> {item.flagName} actually means "{item.actualMeaning}" </p>
+					    				<p key={ind}> {item.flagName} actually means {`"${item.actualMeaning}"`} </p>
 					    				)
 					    		})
 					    	}
