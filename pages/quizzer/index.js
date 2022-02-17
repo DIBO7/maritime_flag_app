@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import Link from "next/link";
 import BareMinimumTemplate from "../../layouts/interface/minimum";
 import cssStyles from "../../styles/Quizzer.module.css";
@@ -22,18 +22,33 @@ export default function Quizzer({data}) {
 	let [ready, setReady] = useState(false);
 	let [apiData, setApiData] = useState(data);
 	let [questions, setQuestions] = useState([]);
-	let [wrongChoices, setWrongChoice] = useState([]); //to hold wrong answers ONLY, we arent keeping track of correct answers
+	let [tickedAnswers, setTickedAnswers] = useState([]); //to hold user answers {flagName: "string", answer: "string", correct: Boolean}
 	let [sn, setSn] = useState(0); //set serial number, this will be used to move along the questions, displaying them one at a time
+	let [currentSelection, setCurrentSelection] = useState(null);//the option the user is currently selected
 
 
 	//so i will haee two functions; goToNext and anwerThisQuestion (and a new state that either hold wrongAnswers or correct answers)
 	//go to next well goes to the next question by increasing sn if possible, else it goes to the result 
 	//answer questions notes down the question answered by the user, updates all necessary states and then calls goToNext
 
-	const nextSn = () =>{
+	const answerThisQuestion = () =>{
+		//checks if a selected answer is right, if it is, go to the next, if its not right, add it to wrong questions then go to next
+		if(questions[sn].meaning === currentSelection){//meaning its correct/the user picked the right answer
+				setTickedAnswers([...tickedAnswers, {flagName: questions[sn].q, actualMeaning: questions[sn].meaning, correct:true}])
+		}else{
+				setTickedAnswers([...tickedAnswers, {flagName: questions[sn].q, actualMeaning: questions[sn].meaning, correct:false}])
+		}
+		goToNextQuestion()
+	}
+
+	const goToNextQuestion = () =>{
 		if( (sn + 1) < questions.length){
 			setSn(sn+1)
+		}else{
+			setReady(false)			
 		}
+		setCurrentSelection("")//forget whatever the user has selected;
+		console.log(tickedAnswers)
 	}
 
 	useEffect(()=>{
@@ -69,12 +84,17 @@ export default function Quizzer({data}) {
 				    	questions[sn].options.map((opt, ind)=>{
 
 				    		return(
-									  <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" key={ind}>
+				    				<React.Fragment key={ind}>
+									  <button className={ opt === currentSelection ? "active" : "" } type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" key={ind} onClick={()=>setCurrentSelection(opt)}>
 										  {opt}
 										</button>
+										
+
+										</React.Fragment>
 				    			)						    
 				    	})
 				    }
+						
 
 				    </div>	    
 
@@ -84,7 +104,7 @@ export default function Quizzer({data}) {
 				  		<span className={cssStyles["tiny"]}>
 				  			you can skip this question but you will not be able to answer it later.
 				  		</span>
-						<button className={cssStyles["nextbtn"]} disabled={false} onClick={()=>nextSn()}> Proceed To Next Question </button>
+						<button className={cssStyles["nextbtn"]} disabled={false} onClick={()=>goToNextQuestion()}> Proceed To Next Question </button>
 						</div>
 
 						<hr />
@@ -102,7 +122,7 @@ export default function Quizzer({data}) {
 			</Link>
 		</footer>
 
-		<ModalScreen> <ConfirmAnswer /> </ModalScreen>
+		<ModalScreen> <ConfirmAnswer clickHandler={answerThisQuestion} /> </ModalScreen>
 
 	  </section>
 
