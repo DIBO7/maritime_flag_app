@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import Link from "next/link";
+import {useRouter} from "next/router";
 import BareMinimumTemplate from "../../layouts/interface/minimum";
 import cssStyles from "../../styles/Quizzer.module.css";
 import ModalScreen from "../../layouts/modal";
@@ -7,14 +8,6 @@ import {ConfirmAnswer} from "../../components/notification";
 import ProgressBar from "../../components/meter";
 import Loader from "../../components/loader";
 import {getAPIData, getRandomObjects, questionification} from "../../utility/worker";
-
-//here, I will fetch all flags from the api (most probably with useEffect)
-//keep the fetched flags in an API
-//create a function to pick random 5 or 10 objects to questonify. (this function can be in a different file, cos it will be used in other places)
-//questionify selected objects and keep them in a stata
-//user answers are also kept in a state
-//
-
 
 
 export default function Quizzer({data}) {
@@ -27,10 +20,7 @@ export default function Quizzer({data}) {
 	let [currentSelection, setCurrentSelection] = useState(null);//the option the user is currently selected
 	let [questionMode, setQuestionMode] = useState(true)//once this is false...show results instead!
 
-
-	//so i will haee two functions; goToNext and anwerThisQuestion (and a new state that either hold wrongAnswers or correct answers)
-	//go to next well goes to the next question by increasing sn if possible, else it goes to the result 
-	//answer questions notes down the question answered by the user, updates all necessary states and then calls goToNext
+	const router = useRouter();//to refresh the page to try quiz again
 
 	const answerThisQuestion = () =>{
 		//checks if a selected answer is right, if it is, go to the next, if its not right, add it to wrong questions then go to next
@@ -104,7 +94,11 @@ export default function Quizzer({data}) {
 				    	:
 
 				    	<div>
-				    	<h3>Your Mistakes</h3>
+
+				    		{
+				    			tickedAnswers.some((ans)=>!item.correct) ? <h3>Your Mistakes</h3> : <h3>Perfect Score! Bravo!!</h3>
+				    		}
+				    	
 					    	{
 					    		tickedAnswers.filter(item=>!item.correct).map((item, ind)=>{
 					    			return(
@@ -113,9 +107,7 @@ export default function Quizzer({data}) {
 					    		})
 					    	}
 					    <hr />
-					    <Link href="/quizzer/">
-					  		<button className={cssStyles["nextbtn"]} disabled={false}> Try Quiz Again </button>
-					  	</Link>
+					  	<button className={cssStyles["nextbtn"]} disabled={false} onClick={()=>router.reload(window.location.pathname)}> Try Quiz Again </button>
 
 					    </div>
 
