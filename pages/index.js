@@ -28,15 +28,27 @@ const router = useRouter();//to push to the quizzer page
           </button>          
 
           <Link href="/about/" passHref><button> About the App </button></Link>
-          <button> Send App Invite to Friends </button>
+          <button type="button" data-bs-toggle="modal" data-bs-target="#sharemodal">
+            Send App Invite to Friends
+          </button>
 
         </div>
 
-        <ModalScreen> 
+        <ModalScreen modal_title={"Proceed To Quizzer"}> 
           <InformationShowcase 
             info={"At the moment, the quizzer only with flag names and meanings. In the coming days, it would include flag identifications and more."}
             btnHandler={()=>router.push("/quizzer/")}
           />
+        </ModalScreen>
+
+        <ModalScreen modal_id={"sharemodal"} modal_title={"Share App With People"}> 
+          <div>
+            <span> facebook </span>
+            <span> twitter </span>
+            <span> whatsapp </span>
+            <span> email </span>
+            <span> copy link </span>
+          </div>
         </ModalScreen>
 
       </section>
