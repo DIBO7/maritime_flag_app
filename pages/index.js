@@ -1,13 +1,19 @@
 //npm i @popperjs/core
 import Link from "next/link";
+import {useRouter} from "next/router";
 import Interface from "../layouts/interface";
 //import Card from "../components/card"
-import ModelScreen from "../components/modal";
+//import ModelScreen from "../components/modal";
+import ModalScreen from "../layouts/modal";
+import {InformationShowcase} from "../components/notification";
 import styles from '../styles/Home.module.css';
 
 
 
 export default function Home() {
+
+const router = useRouter();//to push to the quizzer page
+
   return (
     <Interface>
       <section className="within-main">
@@ -26,7 +32,12 @@ export default function Home() {
 
         </div>
 
-        <ModelScreen />
+        <ModalScreen> 
+          <InformationShowcase 
+            info={"At the moment, the quizzer only with flag names and meanings. In the coming days, it would include flag identifications and more."}
+            btnHandler={()=>router.push("/quizzer/")}
+          />
+        </ModalScreen>
 
       </section>
     </Interface>
