@@ -96,7 +96,7 @@ export default function Quizzer({data}) {
 				    	<div>
 
 				    		{
-				    			tickedAnswers.some((ans)=>!item.correct) ? <h3>Your Mistakes</h3> : <h3>Perfect Score! Bravo!!</h3>
+				    			tickedAnswers.some((ans)=>!ans.correct) ? <h3>Your Mistakes</h3> : <h3>Perfect Score! Bravo!!</h3>
 				    		}
 				    	
 					    	{
