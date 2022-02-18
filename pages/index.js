@@ -27,7 +27,7 @@ const router = useRouter();//to push to the quizzer page
             Nautical Flags Quizzer
           </button>          
 
-          <Link href="/quizzer/" passHref><button> About the App </button></Link>
+          <Link href="/about/" passHref><button> About the App </button></Link>
           <button> Send App Invite to Friends </button>
 
         </div>
