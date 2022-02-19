@@ -1,10 +1,26 @@
 import Link from "next/link";
-
+import {useState} from "react";
 
 export default function ShareWindow(){
+
+	let [linkCopied, setLinkCopied] = useState(false)//set to true whenever the "copy link" has been clicked and successful for user notification purposes!
 	
 	const pretextToShare = "Conviniently learn the maritime flags with this free maritime flag app. Take the quizzer whenever you like!";
 	const url = "https://maritime-flag-app.vercel.app";
+
+	const copyToClipboard = () =>{
+//		if(!navigator.clipboard){
+			//call a callback function
+//			console.log("couldn't copy tho")
+//		return;
+//		}
+		navigator.clipboard.writeText(url).then(()=>{
+			setLinkCopied(true)
+			setTimeout(()=>setLinkCopied(false), 5000)//return to initial state after 5 secs
+		}).catch((err)=>{
+			alert("Your browser does not support clipboard copy")
+		})
+	}
 
 
 	return(
@@ -43,17 +59,24 @@ export default function ShareWindow(){
 	      </span>
 	      </Link>
 
-	      <span className="cursorHover" data-bs-toggle="tooltip" data-bs-placement="top" title="copy link">
-	      	<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-clipboard-fill text-primary" viewBox="0 0 16 16">
-			  		<path fillRule="evenodd" d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1A2.5 2.5 0 0 0 6.5 5h3A2.5 2.5 0 0 0 12 2.5v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z"/>
-					</svg>
-	      </span>
+	      {
+	      	linkCopied ? 
+	      		<span className="cursorHover" data-bs-toggle="tooltip" data-bs-placement="top" title="link copied">
+			      	<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-check-square-fill text-success" viewBox="0 0 16 16">
+					  		<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
+							</svg>
+			      </span>
+			     :
+			     	<span className="cursorHover" data-bs-toggle="tooltip" data-bs-placement="top" title="copy link" onClick={()=>copyToClipboard()}>
+			      	<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-clipboard-fill text-primary" viewBox="0 0 16 16">
+					  		<path fillRule="evenodd" d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1A2.5 2.5 0 0 0 6.5 5h3A2.5 2.5 0 0 0 12 2.5v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z"/>
+							</svg>
+			      </span>
 
-	      <span className="cursorHover" data-bs-toggle="tooltip" data-bs-placement="top" title="link copied">
-	      	<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-check-square-fill text-success" viewBox="0 0 16 16">
-			  		<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
-					</svg>
-	      </span>
+	      }
+	      
+
+	      
 
 	    </div>
 
