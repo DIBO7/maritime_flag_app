@@ -114,3 +114,7 @@ footer{
 	padding: 10px 0 30px;
 	text-align: center;
 }
+
+.cursorHover{
+	cursor: pointer;
+}

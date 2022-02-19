@@ -6,6 +6,7 @@ import Interface from "../layouts/interface";
 //import ModelScreen from "../components/modal";
 import ModalScreen from "../layouts/modal";
 import {InformationShowcase} from "../components/notification";
+import ShareWindow from "../components/sharer";
 import styles from '../styles/Home.module.css';
 
 
@@ -42,13 +43,7 @@ const router = useRouter();//to push to the quizzer page
         </ModalScreen>
 
         <ModalScreen modal_id={"sharemodal"} modal_title={"Share App With People"}> 
-          <div>
-            <span> facebook </span>
-            <span> twitter </span>
-            <span> whatsapp </span>
-            <span> email </span>
-            <span> copy link </span>
-          </div>
+          <ShareWindow />
         </ModalScreen>
 
       </section>
