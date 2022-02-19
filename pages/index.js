@@ -1,13 +1,20 @@
 //npm i @popperjs/core
 import Link from "next/link";
+import {useRouter} from "next/router";
 import Interface from "../layouts/interface";
 //import Card from "../components/card"
-import ModelScreen from "../components/modal";
+//import ModelScreen from "../components/modal";
+import ModalScreen from "../layouts/modal";
+import {InformationShowcase} from "../components/notification";
+import ShareWindow from "../components/sharer";
 import styles from '../styles/Home.module.css';
 
 
 
 export default function Home() {
+
+const router = useRouter();//to push to the quizzer page
+
   return (
     <Interface>
       <section className="within-main">
@@ -21,12 +28,23 @@ export default function Home() {
             Nautical Flags Quizzer
           </button>          
 
-          <Link href="/quizzer/" passHref><button> About the App </button></Link>
-          <button> Send App Invite to Friends </button>
+          <Link href="/about/" passHref><button> About the App </button></Link>
+          <button type="button" data-bs-toggle="modal" data-bs-target="#sharemodal">
+            Send App Invite to Friends
+          </button>
 
         </div>
 
-        <ModelScreen />
+        <ModalScreen modal_title={"Proceed To Quizzer"}> 
+          <InformationShowcase 
+            info={"At the moment, the quizzer only with flag names and meanings. In the coming days, it would include flag identifications and more."}
+            btnHandler={()=>router.push("/quizzer/")}
+          />
+        </ModalScreen>
+
+        <ModalScreen modal_id={"sharemodal"} modal_title={"Share App With People"}> 
+          <ShareWindow />
+        </ModalScreen>
 
       </section>
     </Interface>

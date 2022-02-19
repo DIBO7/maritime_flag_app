@@ -14,3 +14,19 @@ export const ConfirmAnswer = function({clickHandler}){
 
 		)
 }
+
+
+export const InformationShowcase = function({info, btnHandler, btnText="Yes! Proceed"}){
+
+	return(
+
+		<div className={cssStyles["cta"]}>
+	  	<span className={cssStyles["tiny"]}>
+	  		{info}
+	  	</span>
+		<button className={cssStyles["nextbtn"]} disabled={false} data-bs-dismiss="modal" onClick={()=>btnHandler()}> {btnText} </button>
+		</div>
+
+
+	)
+}

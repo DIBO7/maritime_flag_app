@@ -1,8 +1,8 @@
 
-export default function ModalScreen({children, footer=null, modal_title="Are You Sure?"}){
+export default function ModalScreen({children, footer=null, modal_title="Are You Sure?", modal_id="exampleModal"}){
 
 	return(
-		<div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+		<div className="modal fade" id={modal_id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
 		  <div className="modal-dialog modal-dialog-centered"> {/*the style{alignItems: flex-end} allow the modal to appear at the bottom but i didnt use it only leads to better UX on phones. tabs look bad and center looks good everywhere*/}
 		    <div className="modal-content">
 		      <div className="modal-header">
