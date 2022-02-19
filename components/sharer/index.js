@@ -5,7 +5,7 @@ export default function ShareWindow(){
 
 	let [linkCopied, setLinkCopied] = useState(false)//set to true whenever the "copy link" has been clicked and successful for user notification purposes!
 	
-	const pretextToShare = "Conviniently learn the maritime flags with this free maritime flag app. Take the quizzer whenever you like!";
+	const pretextToShare = "Conveniently learn the maritime flags with this free maritime flag app. Take the quizzer whenever you like!";
 	const url = "https://maritime-flag-app.vercel.app";
 
 	const copyToClipboard = () =>{
@@ -16,8 +16,8 @@ export default function ShareWindow(){
 //		}
 		navigator.clipboard.writeText(url).then(()=>{
 			setLinkCopied(true)
-			alert("link to app copied to clipboard!")
-			setTimeout(()=>setLinkCopied(false), 5000)//return to initial state after 5 secs
+			setTimeout(()=>alert("link to app copied to clipboard!"), 1000)			
+			setTimeout(()=>setLinkCopied(false), 4000)//return to initial state after 5 secs
 		}).catch((err)=>{
 			alert("Your browser does not support clipboard copy")
 		})
@@ -51,7 +51,7 @@ export default function ShareWindow(){
 	      </span>
 	      </Link>
 
-	      <Link href={"mailto:?subject=I found an app to help you learn the maritime flags conviniently&body=" + pretextToShare + url} passHref={true}>
+	      <Link href={"mailto:?subject=I found an app to help you learn the maritime flags conveniently&body=" + pretextToShare + url} passHref={true}>
 	      <a className="col cursorHover" data-bs-toggle="tooltip" data-bs-placement="top" title="share via email">
 	      	<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-envelope-check-fill text-danger" viewBox="0 0 16 16">
 			  		<path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.026A2 2 0 0 0 2 14h6.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586l-1.239-.757ZM16 4.697v4.974A4.491 4.491 0 0 0 12.5 8a4.49 4.49 0 0 0-1.965.45l-.338-.207L16 4.697Z"/>
