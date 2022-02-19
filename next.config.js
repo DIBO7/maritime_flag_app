@@ -1,4 +1,4 @@
-/*
+
 const withPWA = require('next-pwa')
 
 module.exports = withPWA({
@@ -14,11 +14,11 @@ module.exports = withPWA({
 	}
 })
 //This is making development server load much more slowly so i swicth to speed up
-*/
-
+/*
 module.exports = {
 	reactStrictMode: true,
 	images:{
 		domains: ["firebasestorage.googleapis.com"],
 	}
 }
+*/
