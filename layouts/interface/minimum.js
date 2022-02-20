@@ -16,12 +16,12 @@ export default function BareMinimumTemplate({children}) {
         <meta name="description" content="Page description. No longer than 155 characters." />
         
         {/*Twitter Card data*/}
-        <meta name="twitter:card" content="app">
+        <meta name="twitter:card" content="app" />
         {/*<meta name="twitter:site" content="@TheIbrahim_O">*/}
-        <meta name="twitter:title" content="Master The Maritime Flags">
-        <meta name="twitter:description" content={app_description}>
-        <meta name="twitter:creator" content="@TheIbrahim_O">
-        <meta name="twitter:image" content={`${app_url}/icon-192x192.png`}> {/*min of 120 x 120*/}
+        <meta name="twitter:title" content="Master The Maritime Flags" />
+        <meta name="twitter:description" content={app_description} />
+        <meta name="twitter:creator" content="@TheIbrahim_O" />
+        <meta name="twitter:image" content={`${app_url}/icon-192x192.png`} /> {/*min of 120 x 120*/}
         {/*Open Graph data*/}
         <meta property="og:title" content="Maritime Flag App: Tutor and Quizzer" />
         <meta property="og:type" content="website" />

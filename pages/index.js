@@ -19,7 +19,7 @@ const router = useRouter();//to push to the quizzer page
     <Interface>
       <section className="within-main">
         <div className="board wide">
-          <p className="lead"> Hello!, Welcome to the maritime flag app. What do you intend to do now? </p>
+          <p className="lead"> Hello!, Welcome to the maritime signal flag app. What do you intend to do now? </p>
         </div>
 
         <div className="workgroup wide flexor">
