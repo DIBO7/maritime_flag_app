@@ -32,14 +32,17 @@ export default function BareMinimumTemplate({children}) {
         {/*<meta property="fb:admins" content="Facebook numeric ID" />*/}
 
         {/*Global site tag (gtag.js) - Google Analytics*/}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-T0B7WP4YMS"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-T0B7WP4YMS" />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
 
-          gtag('config', 'G-T0B7WP4YMS');
-        </script>
+              gtag('config', 'G-T0B7WP4YMS', {page_path: window.location.pathname});
+          `,
+        }} />
+          
 
         <link rel="icon" href="/favicon.ico" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous" />
