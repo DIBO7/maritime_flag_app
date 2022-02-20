@@ -1,6 +1,6 @@
 //npm i @popperjs/core
-import Head from 'next/head'
-import Script from "next/script";
+//import Head from 'next/head'
+//import Script from "next/script";
 import BareMinimumTemplate from "./minimum";
 //import Navigation from "../../components/header";
 //import Footer from "../../components/footer";
