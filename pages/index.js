@@ -37,8 +37,9 @@ const router = useRouter();//to push to the quizzer page
 
         <ModalScreen modal_title={"Proceed To Quizzer"}> 
           <InformationShowcase 
-            info={"At the moment, the quizzer only with flag names and meanings. In the coming days, it would include flag identifications and more."}
+            info={"At the moment, the quizzer works with flag names and meanings. In the coming days, it would include flag image identifications and more."}
             btnHandler={()=>router.push("/quizzer/")}
+            btnText={"Proceed To Quizzer"}
           />
         </ModalScreen>
 
