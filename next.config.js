@@ -5,6 +5,7 @@ module.exports = withPWA({
   reactStrictMode: true,
   pwa:{
   	dest: "public",
+  	disable: process.env.NODE_ENV === 'development',
   	register: true,
   	skipWaiting: true
   },
@@ -15,7 +16,7 @@ module.exports = withPWA({
 //This is making development server load much more slowly so i swicth to speed up
 /*
 
-disable: process.env.NODE_ENV === 'development',
+
 
 module.exports = {
 	reactStrictMode: true,
