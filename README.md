@@ -25,6 +25,11 @@ yarn dev
 ```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## To contribut;
+1. Clone the repo
+2. run ```npm i```
+3. run ```npm run dev```
+
 
 ## Learn More
 
