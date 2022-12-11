@@ -37,7 +37,7 @@ export default function About(){
 			<h2 style={{color: "var(--tertiary)"}}> Development & Maintenance </h2>
 			<div style={{padding: "15px 0", textAlign: "justify"}}>
 				<p className="lead">
-					This {appname.toLowerCase()} is the result of one of many projects of Mr. <Link href="https://theibrahim.herokuapp.com" passHref={true}><a data-bs-toggle="tooltip" data-bs-placement="top" title="Ibrahim Oduola is a skilled tech savvy nautical cadet making the best of both worlds">Ibrahim B. Oduola</a></Link>.
+					This {appname.toLowerCase()} is the result of one of many projects of Mr. <Link href="https://theibrahim.vercel.app" passHref={true}><a data-bs-toggle="tooltip" data-bs-placement="top" title="Ibrahim Oduola is a skilled tech savvy nautical cadet making the best of both worlds">Ibrahim B. Oduola</a></Link>.
 					Although a project of one person, this app is actually an <Link href="https://github.com/TheIbrahim7/maritime_flag_app" passHref={true}><a>open source project on github</a></Link> where 
 					developers (with knowledge and experience in Javascript, Next-js and bootsrap among others) can contribute to.
 				</p>
