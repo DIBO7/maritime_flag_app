@@ -22,7 +22,7 @@ function Tutorial({data}) {//data is from the getServerProps below whish is like
             <div className={styles.slider}> {/*boostrap 'conatiner' class looks good but the width of the sliding element gets a bug. alittle portion of next element is visible*/}
 
               {
-                data.map((f)=>{
+                data.sort().map((f)=>{
                   return(
                       <SlidingElement id={f._id} key={f._id} img_url={f.image} alphabet={f.name.charAt(0)}  name={f.name} meaning={f.meaning[0]} />
                     )
@@ -73,7 +73,6 @@ function Tutorial({data}) {//data is from the getServerProps below whish is like
 export const getServerSideProps = async() =>{
   //for now all host (heroku, vercel and local) should fetch from vercel
   const data = await getAPIData()
-  data = data.sort(); //this should sort the data out!
 
     //pass data to this page via props
     return{
