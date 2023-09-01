@@ -9,6 +9,17 @@ import {getAPIData} from "../../utility/worker";
 
 
 function Tutorial({data}) {//data is from the getServerProps below whish is like useEffect except it works before page loads
+  data=data.sort((a, b) => {
+    const nameA = a.name.toLowerCase(); // Convert names to lowercase for case-insensitive sorting
+    const nameB = b.name.toLowerCase();
+    if (nameA < nameB) {
+      return -1; // a should come before b
+    }
+    if (nameA > nameB) {
+      return 1; // a should come after b
+    }
+    return 0; // names are the same
+  });
 
   return (
     
@@ -22,7 +33,7 @@ function Tutorial({data}) {//data is from the getServerProps below whish is like
             <div className={styles.slider}> {/*boostrap 'conatiner' class looks good but the width of the sliding element gets a bug. alittle portion of next element is visible*/}
 
               {
-                data.sort().map((f)=>{
+                data.map((f)=>{
                   return(
                       <SlidingElement id={f._id} key={f._id} img_url={f.image} alphabet={f.name.charAt(0)}  name={f.name} meaning={f.meaning[0]} />
                     )
