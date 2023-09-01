@@ -37,13 +37,13 @@ export default function About(){
 			<h2 style={{color: "var(--tertiary)"}}> Development & Maintenance </h2>
 			<div style={{padding: "15px 0", textAlign: "justify"}}>
 				<p className="lead">
-					This {appname.toLowerCase()} is the result of one of many projects of Mr. <Link href="https://theibrahim.vercel.app" passHref={true}><a data-bs-toggle="tooltip" data-bs-placement="top" title="Ibrahim Oduola is a skilled tech savvy nautical cadet making the best of both worlds">Ibrahim B. Oduola</a></Link>.
+					This {appname.toLowerCase()} is developed by <Link href="https://www.ioweb.pro" passHref={true}><a data-bs-toggle="tooltip" data-bs-placement="top" title="Ibrahim Oduola is a tech-savvy seaman making the best of both worlds">ioweb</a></Link>.
 					Although a project of one person, this app is actually an <Link href="https://github.com/TheIbrahim7/maritime_flag_app" passHref={true}><a>open source project on github</a></Link> where 
-					developers (with knowledge and experience in Javascript, Next-js and bootsrap among others) can contribute to.
+					developers (with knowledge and experience in Javascript, Next-js and bootsrap among others) can contribute to it.
 				</p>
 				<p className="lead">
 					Updates (in forms of improvement and corrections) will continuosly and regularly be made on this app including periodic maintenace.
-					To contact the developers with error reports, suggestions, necessary corrections or anything at all, please  <Link href="mailto:ibrahim.oduola007@gmail.com?subject=Message About The Maritime Flag App&body=Hello! My name is ...." passHref={true}><a>send us a mail.</a></Link>
+					To contact the developers with error reports, suggestions, necessary corrections or anything at all, please <Link href="mailto:ibrahim.oduola007@gmail.com?subject=Message About The Maritime Flag App&body=Hello! My name is ...." passHref={true}><a>send us a mail.</a></Link>
 				</p>
 				<p className="lead">
 					Thank you and Have a great day.

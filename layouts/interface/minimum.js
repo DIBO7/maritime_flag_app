@@ -11,24 +11,24 @@ export default function BareMinimumTemplate({children}) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Maritime Flag App: Tutor and Quizzer</title>
+        <title>Learn The Nautical Signal Flags And Test Your Knowledge</title>
         <meta name="description" content={app_description} />
-        <meta name="description" content="Page description. No longer than 155 characters." />
+        <meta name="google-site-verification" content="GZQq9PcarDV7WP42mmuSzpwMAVynE8zezLb4einE4m4" />
         
         {/*Twitter Card data*/}
         <meta name="twitter:card" content="app" />
-        {/*<meta name="twitter:site" content="@TheIbrahim_O">*/}
+        {/* <meta name="twitter:site" content="@TheIbrahim_O"> */}
         <meta name="twitter:title" content="Master The Maritime Flags" />
         <meta name="twitter:description" content={app_description} />
         <meta name="twitter:creator" content="@TheIbrahim_O" />
         <meta name="twitter:image" content={`${app_url}/icon-192x192.png`} /> {/*min of 120 x 120*/}
         {/*Open Graph data*/}
-        <meta property="og:title" content="Maritime Flag App: Tutor and Quizzer" />
+        <meta property="og:title" content="Learn The Nautical Signal Flags" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={app_url} />
         <meta property="og:image" content={`${app_url}/icon-192x192.png`} />
         <meta property="og:description" content={app_description} />
-        <meta property="og:site_name" content="Maritime Flag App: Tutor and Quizzer" />
+        <meta property="og:site_name" content="Learn The Nautical Signal Flags" />
         {/*<meta property="fb:admins" content="Facebook numeric ID" />*/}
 
         {/*Global site tag (gtag.js) - Google Analytics*/}
