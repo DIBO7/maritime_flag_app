@@ -73,6 +73,7 @@ function Tutorial({data}) {//data is from the getServerProps below whish is like
 export const getServerSideProps = async() =>{
   //for now all host (heroku, vercel and local) should fetch from vercel
   const data = await getAPIData()
+  data = data.sort(); //this should sort the data out!
 
     //pass data to this page via props
     return{
